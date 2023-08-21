@@ -20,6 +20,12 @@ spring:
     show-sql: true
   liquibase:
     change-log: db/changelog/db.changelog-master.yaml
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: 6379
+
 springdoc:
   api-docs:
     enabled: true
@@ -33,5 +39,6 @@ minio:
   password: minio-root-password
   url: http://${MINIO_HOST:localhost}:9000
   bucket-name: logo-storage
+
 server:
   port: 8088

@@ -11,6 +11,7 @@ import com.skfl.city.services.CityService;
 import com.skfl.city.services.LogoService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,6 +25,7 @@ public class CityServiceImpl implements CityService {
     private final LogoService logoService;
 
     @Override
+    @Cacheable(cacheNames = "cityByCountryName")
     public CityResponse getAllCitiesByCountryName(String countryName, Pageable pageable) {
         var cities = cityRepository.findAllByCountry_Name(countryName, pageable);
         return CityResponse.builder()
@@ -39,6 +41,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
+    @Cacheable(cacheNames = "cityByCityName")
     public CityResponse getAllCitiesByCityName(String city, Pageable pageable) {
         var cities = cityRepository.findAllByName(city, pageable);
         return CityResponse.builder()
@@ -54,6 +57,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
+    @Cacheable(cacheNames = "cityCache")
     public CityResponse getAllCities(Pageable pageable) {
         var cities = cityRepository.findAll(pageable);
         return CityResponse.builder()
@@ -91,6 +95,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
+    @Cacheable(cacheNames = "uniqueNamesCache")
     public CityNameResponse getAllUniqueCityName(Pageable pageable) {
         var names = cityRepository.findAllDistinctName(pageable);
         return CityNameResponse.builder()
