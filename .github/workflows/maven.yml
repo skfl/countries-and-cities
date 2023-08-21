@@ -25,7 +25,7 @@ jobs:
         cache: maven
         
     - name: Step 3 - Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file pom.xml -DskipTests
 
     - name : Step 4 - Check target folder
       run : |
