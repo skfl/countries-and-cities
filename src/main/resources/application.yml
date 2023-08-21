@@ -8,7 +8,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://${KEYCLOAK_HOST:localhost}/realms/countries-and-cities-main-realm
+          issuer-uri: http://${KEYCLOAK_HOST:localhost}:8080/realms/countries-and-cities-main-realm
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
@@ -28,9 +28,10 @@ jwt:
     converter:
       resource-id: cities-and-countries
       principal-attribute: preferred_username
-
 minio:
   username: minio-root-user
   password: minio-root-password
   url: http://${MINIO_HOST:localhost}:9000
   bucket-name: logo-storage
+server:
+  port: 8088

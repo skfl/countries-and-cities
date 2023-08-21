@@ -34,7 +34,7 @@ public class LogoServiceImpl implements LogoService {
 
     @Override
     public String loadLogoFile(MultipartFile multipartFile) throws Exception {
-        var filename = UUID.randomUUID() + FilenameUtils.getExtension(multipartFile.getOriginalFilename());
+        var filename = UUID.randomUUID() + "." + FilenameUtils.getExtension(multipartFile.getOriginalFilename());
         minioClient.putObject(PutObjectArgs.builder()
                 .bucket(bucketName)
                 .object(filename)

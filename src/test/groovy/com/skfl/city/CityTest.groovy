@@ -71,7 +71,7 @@ class CityTest extends AbstractTest {
     def 'get unique city names'() {
         given:
         var objectMapper = builder.build();
-        var citiesNamesResponse = objectMapper.readValue(mvc.perform(get("/api/v1/city/unique"))
+        var citiesNamesResponse = objectMapper.readValue(mvc.perform(get("/api/v1/city/names/unique"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isOk())
                 .andReturn().response.contentAsString, CityNameResponse.class).getNames()

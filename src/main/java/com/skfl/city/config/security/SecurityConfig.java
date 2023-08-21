@@ -3,6 +3,7 @@ package com.skfl.city.config.security;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -16,13 +17,20 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // каждый энпоинт делать рестрикшен + POST GET ...
         http
                 .authorizeHttpRequests
-                        (auth -> auth.requestMatchers("/api/v1/city", "/api/v1/city/unique","/actuator/**","/api/v1/logo/**")
+                        (auth -> auth.requestMatchers(HttpMethod.GET,
+                                        "/api/v1/city",
+                                        "/api/v1/city/names/unique",
+                                        "/actuator/**",
+                                        "/api/v1/city/logo/**")
                                 .permitAll()
-                                .requestMatchers("/api/v1/city/**")
+                                .requestMatchers(HttpMethod.PUT,"/api/v1/city/**")
                                 .hasRole("EDITOR")
+                                .requestMatchers(HttpMethod.POST,"/api/v1/city/**")
+                                .hasRole("EDITOR")
+                                .requestMatchers("/swagger-ui/**")
+                                .permitAll()
                                 .anyRequest().permitAll())
                 .oauth2ResourceServer(oauth -> oauth.jwt(customizer -> customizer.jwtAuthenticationConverter(jwtAuthConverter)))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

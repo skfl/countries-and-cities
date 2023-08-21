@@ -74,7 +74,6 @@ public class CityServiceImpl implements CityService {
                 .orElseThrow(() ->
                         new EntityNotFoundException(ExceptionMessage.CITY_NOT_FOUND_MESSAGE.getValue()));
         foundCity.setName(dto.getName());
-        foundCity.setLogo(dto.getLogo());
         return CityMapper.INSTANCE.toDto(cityRepository.save(foundCity));
     }
 
