@@ -4,11 +4,11 @@
 ## Countries and cities
 ### Task statement
 Create an enterprise-grade "Country and city list" application which allows the user to do following:
-*  browse though the paginated list of cities with logos
+*  Browse though the paginated list of cities with logos
 * Display unique cities names
 * Get all cities by country name
 * Search by city name
-* edit the city (both name and logos) - Editing the city should be only allowed for users with role EDITOR
+* Edit the city (both name and logos) - Editing the city should be only allowed for users with role EDITOR
 
 ### Technical stack
 
@@ -27,6 +27,7 @@ Java 17
     * Testcontainers
 * Misc
     * Keycloak
+    * MinIO S3
     * Docker
     * Swagger
 
