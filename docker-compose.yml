@@ -1,0 +1,70 @@
+version: '2'
+
+services:
+  minio:
+    image: 'bitnami/minio:latest'
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    environment:
+      - MINIO_ROOT_USER=minio-root-user
+      - MINIO_ROOT_PASSWORD=minio-root-password
+    networks:
+      - custom-network
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: 31150616
+    volumes:
+      - ./postgres/postgre_init.sql:/docker-entrypoint-initdb.d/postgre_init.sql
+    networks:
+      - custom-network
+    ports:
+      - "5433:5432"
+
+  postgresql:
+    image: docker.io/bitnami/postgresql:latest
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - POSTGRESQL_USERNAME=bn_keycloak
+      - POSTGRESQL_DATABASE=bitnami_keycloak
+    networks:
+      - keycloak-network
+
+  keycloak:
+    image: docker.io/bitnami/keycloak:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - KEYCLOAK_CREATE_ADMIN_USER=true
+    depends_on:
+      - postgresql
+    networks:
+      - custom-network
+      - keycloak-network
+
+  city-service:
+    restart: always
+    container_name: city-service
+    networks:
+      - custom-network
+    depends_on:
+      - minio
+      - postgres
+      - keycloak
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8081:8080'
+    environment:
+      POSTGRES_HOST: postgres
+      MINIO_HOST: minio
+      KEYCLOAK_HOST: keycloak
+
+networks:
+  custom-network:
+    driver: bridge
+  keycloak-network:
+    driver: bridge
