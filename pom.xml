@@ -18,6 +18,16 @@
 
     <properties>
         <java.version>17</java.version>
+        <mapstruct.version>1.5.3.Final</mapstruct.version>
+        <mapstruct-processor.version>1.5.3.Final</mapstruct-processor.version>
+        <springdoc-api.version>2.1.0</springdoc-api.version>
+        <liquibase.version>4.23.1</liquibase.version>
+        <minio.version>8.5.5</minio.version>
+        <commons-io.version>2.13.0</commons-io.version>
+        <spock-core.version>2.4-M1-groovy-4.0</spock-core.version>
+        <spock-testcontainers.version>1.18.0</spock-testcontainers.version>
+        <postgre-testcontainers.version>1.18.0</postgre-testcontainers.version>
+        <spock-spring.version>2.4-M1-groovy-4.0</spock-spring.version>
     </properties>
 
     <dependencies>
@@ -50,22 +60,22 @@
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
-            <version>1.5.3.Final</version>
+            <version>${mapstruct.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
-            <version>1.5.3.Final</version>
+            <version>${mapstruct-processor.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.1.0</version>
+            <version>${springdoc-api.version}</version>
         </dependency>
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
-            <version>4.23.1</version>
+            <version>${liquibase.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -86,14 +96,13 @@
         <dependency>
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>
-            <version>8.5.5</version>
+            <version>${minio.version}</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.13.0</version>
+            <version>${commons-io.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -107,25 +116,25 @@
         <dependency>
             <groupId>org.spockframework</groupId>
             <artifactId>spock-core</artifactId>
-            <version>2.4-M1-groovy-4.0</version>
+            <version>${spock-core.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>spock</artifactId>
-            <version>1.18.0</version>
+            <version>${spock-testcontainers.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>postgresql</artifactId>
-            <version>1.18.0</version>
+            <version>${postgre-testcontainers.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.spockframework</groupId>
             <artifactId>spock-spring</artifactId>
-            <version>2.4-M1-groovy-4.0</version>
+            <version>${spock-spring.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
