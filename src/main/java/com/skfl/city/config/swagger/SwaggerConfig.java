@@ -1,6 +1,5 @@
 package com.skfl.city.config.swagger;
 
-import io.minio.MinioClient;
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

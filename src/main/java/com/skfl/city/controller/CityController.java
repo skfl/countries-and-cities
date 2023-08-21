@@ -28,7 +28,6 @@ public class CityController {
 
     private final LogoService logoService;
 
-
     @GetMapping("/unique")
     public ResponseEntity<CityNameResponse> getAllUniqueCityName(@RequestParam(defaultValue = "3") int size,
                                                                  @RequestParam(defaultValue = "0") int page) {
