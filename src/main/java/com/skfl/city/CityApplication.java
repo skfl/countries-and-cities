@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableCaching
 public class CityApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CityApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CityApplication.class, args);
+    }
 }

@@ -14,5 +14,6 @@ public class JwtAuthConverterProperties {
 
     @NotBlank
     private String resourceId;
+
     private String principalAttribute;
 }

@@ -1,6 +1,6 @@
 package com.skfl.city.config.security;
 
-
+import org.jetbrains.annotations.NotNull;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
@@ -25,7 +25,7 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
     }
 
     @Override
-    public AbstractAuthenticationToken convert(Jwt jwt) {
+    public AbstractAuthenticationToken convert(@NotNull Jwt jwt) {
         Collection<GrantedAuthority> authorities = extractResourceRoles(jwt);
         return new JwtAuthenticationToken(jwt, authorities, getPrincipalClaimName(jwt));
     }

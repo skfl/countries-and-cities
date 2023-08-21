@@ -31,7 +31,6 @@ public class LogoServiceImpl implements LogoService {
                 .build());
     }
 
-
     @Override
     public String loadLogoFile(MultipartFile multipartFile) throws Exception {
         var filename = UUID.randomUUID() + "." + FilenameUtils.getExtension(multipartFile.getOriginalFilename());
@@ -43,7 +42,6 @@ public class LogoServiceImpl implements LogoService {
                 .build());
         return filename;
     }
-
 
     @Override
     public void deleteLogoFile(String previousLogoUuid) throws Exception {

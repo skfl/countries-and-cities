@@ -24,5 +24,5 @@ public class ApplicationValidationErrorResponse {
     @JsonFormat(pattern = "yyyy HH:mm:ss ")
     private LocalDateTime timestamp;
 
-    private Map<String,String> violations;
+    private Map<String, String> violations;
 }

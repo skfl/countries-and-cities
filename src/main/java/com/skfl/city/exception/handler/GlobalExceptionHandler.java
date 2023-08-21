@@ -36,7 +36,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApplicationValidationErrorResponse handleValidationExceptions(MethodArgumentNotValidException e) {
         var message = "MethodArgumentNotValid Exception";
-        log.warn(message,e);
+        log.warn(message, e);
         Map<String, String> violations = new HashMap<>();
         e.getBindingResult().getAllErrors().forEach((error) -> {
             String fieldName = ((FieldError) error).getField();

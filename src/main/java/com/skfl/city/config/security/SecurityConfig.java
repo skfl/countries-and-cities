@@ -35,7 +35,6 @@ public class SecurityConfig {
                 .oauth2ResourceServer(oauth -> oauth.jwt(customizer -> customizer.jwtAuthenticationConverter(jwtAuthConverter)))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(AbstractHttpConfigurer::disable);
-
         return http.build();
     }
 }

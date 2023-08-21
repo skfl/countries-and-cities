@@ -30,7 +30,7 @@ public class MinioConfig {
                 .endpoint(url)
                 .credentials(minioUsername, minioPassword)
                 .build();
-        if(!client.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build())){
+        if (!client.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build())) {
             client.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());
             log.info("Minio bucket {} created successfully", bucketName);
         }
