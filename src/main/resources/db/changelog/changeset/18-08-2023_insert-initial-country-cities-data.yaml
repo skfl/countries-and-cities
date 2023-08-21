@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-initial-country-data
+      author: Edward Rogachkov
+      changes:
+        - insert:
+            tableName: country_cities
+            columns:
+              - column:
+                  name: country_id
+                  value: 1
+              - column:
+                  name: cities_id
+                  value: 1
+        - insert:
+            tableName: country_cities
+            columns:
+              - column:
+                  name: country_id
+                  value: 2
+              - column:
+                  name: cities_id
+                  value: 2
+        - insert:
+            tableName: country_cities
+            columns:
+              - column:
+                  name: country_id
+                  value: 1
+              - column:
+                  name: cities_id
+                  value: 3
+        - insert:
+            tableName: country_cities
+            columns:
+              - column:
+                  name: country_id
+                  value: 2
+              - column:
+                  name: cities_id
+                  value: 4
+        - insert:
+            tableName: country_cities
+            columns:
+              - column:
+                  name: country_id
+                  value: 3
+              - column:
+                  name: cities_id
+                  value: 5

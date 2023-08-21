@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-initial-country-data
+      author: Edward Rogachkov
+      changes:
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: name
+                  value: USA
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: name
+                  value: France
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: name
+                  value: Italy

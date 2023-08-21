@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-city
+      author: Edward Rogachkov
+      changes:
+        - createTable:
+            tableName: city
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: logo
+                  type: varchar(255)
+              - column:
+                  name: country_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_country_id
+                    referencedTableName: country
+                    referencedColumnNames: id
+                    nullable: false

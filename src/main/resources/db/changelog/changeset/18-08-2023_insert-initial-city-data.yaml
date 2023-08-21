@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-initial-country-data
+      author: Edward Rogachkov
+      changes:
+        - insert:
+            tableName: city
+            columns:
+              - column:
+                  name: name
+                  value: Paris
+              - column:
+                  name: country_id
+                  value: 1
+        - insert:
+            tableName: city
+            columns:
+              - column:
+                  name: name
+                  value: Paris
+              - column:
+                  name: country_id
+                  value: 2
+        - insert:
+            tableName: city
+            columns:
+              - column:
+                  name: name
+                  value: Columbus
+              - column:
+                  name: country_id
+                  value: 1
+        - insert:
+            tableName: city
+            columns:
+              - column:
+                  name: name
+                  value: Bordo
+              - column:
+                  name: country_id
+                  value: 2
+        - insert:
+            tableName: city
+            columns:
+              - column:
+                  name: name
+                  value: Rome
+              - column:
+                  name: country_id
+                  value: 3
+

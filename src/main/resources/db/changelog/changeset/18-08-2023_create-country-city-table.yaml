@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-country-city
+      author: Edward Rogachkov
+      changes:
+        - createTable:
+            tableName: country_cities
+            columns:
+              - column:
+                  name: country_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_country_id
+                    referencedTableName: country
+                    referencedColumnNames: id
+                    nullable: false
+              - column:
+                  name: cities_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_city_id
+                    referencedTableName: city
+                    referencedColumnNames: id
+                    nullable: false
