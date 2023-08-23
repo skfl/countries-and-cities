@@ -6,8 +6,8 @@ databaseChangeLog:
   - include:
       file: db/changelog/changeset/18-08-2023_create-country-city-table.yaml
   - include:
-      file: db/changelog/changeset/18-08-2023_insert-initial-country-data.yaml
+      file: db/changelog/changeset/23-08-2023_load-initial-country.yaml
   - include:
-      file: db/changelog/changeset/18-08-2023_insert-initial-city-data.yaml
+      file: db/changelog/changeset/23-08-2023_load-initial-city.yaml
   - include:
-      file: db/changelog/changeset/18-08-2023_insert-initial-country-cities-data.yaml
+      file: db/changelog/changeset/23-08-2023_load-initial-city-country.yaml

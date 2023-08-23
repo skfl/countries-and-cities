@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-initial-country-data
+      author: Edward Rogachkov
+      changes:
+        - loadData:
+            file: "city-country.csv"
+            separator: ','
+            tableName: country_cities
