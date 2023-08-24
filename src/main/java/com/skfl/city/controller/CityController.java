@@ -4,8 +4,8 @@ import com.skfl.city.dto.CityDto;
 import com.skfl.city.dto.response.ApplicationErrorResponse;
 import com.skfl.city.dto.response.CityNameResponse;
 import com.skfl.city.dto.response.CityResponse;
-import com.skfl.city.services.CityService;
 import com.skfl.city.services.LogoService;
+import com.skfl.city.mediator.CityMediator;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -40,7 +40,7 @@ import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
 @RequestMapping("/api/v1/city")
 public class CityController {
 
-    private final CityService cityService;
+    private final CityMediator cityMediator;
 
     private final LogoService logoService;
 
@@ -58,7 +58,7 @@ public class CityController {
                                                                  @RequestParam(defaultValue = "0") int page) {
         var pageable = PageRequest.of(page, size);
         return ResponseEntity.ok(
-                cityService.getAllUniqueCityName(pageable)
+                cityMediator.getAllUniqueCityName(pageable)
         );
     }
 
@@ -79,23 +79,9 @@ public class CityController {
         if (countryName != null && cityName != null) {
             throw new IllegalArgumentException();
         }
-
         var pageable = PageRequest.of(page, size);
-
-        if (countryName != null) {
-            return ResponseEntity.ok(
-                    cityService.getAllCitiesByCountryName(countryName, pageable)
-            );
-        }
-
-        if (cityName != null) {
-            return ResponseEntity.ok(
-                    cityService.getAllCitiesByCityName(cityName, pageable)
-            );
-        }
-
         return ResponseEntity.ok(
-                cityService.getAllCities(pageable)
+                cityMediator.getAllCities(countryName, cityName, pageable)
         );
     }
 
@@ -112,7 +98,7 @@ public class CityController {
     public ResponseEntity<CityDto> editCityNameByCityId(@RequestBody @Valid CityDto cityDto,
                                                         @Valid @PositiveOrZero @PathVariable Long id) {
         return ResponseEntity.ok(
-                cityService.editCityNameByCityId(id, cityDto)
+                cityMediator.editCityNameByCityId(cityDto, id)
         );
     }
 
@@ -129,7 +115,7 @@ public class CityController {
     public ResponseEntity<CityDto> uploadCityLogo(@RequestParam("file") MultipartFile file,
                                                   @PositiveOrZero @PathVariable Long id) throws Exception {
         return ResponseEntity.ok(
-                cityService.editCityLogoByCityId(id, file)
+                cityMediator.uploadCityLogo(file, id)
         );
     }
 

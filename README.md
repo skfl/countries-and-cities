@@ -6,6 +6,7 @@
 Create an enterprise-grade "Country and city list" application which allows the user to do following:
 *  Browse though the paginated list of cities with logos
 * Display unique cities names
+* Get paginated list of countries
 * Get all cities by country name
 * Search by city name
 * Edit the city (both name and logos) - Editing the city should be only allowed for users with role EDITOR

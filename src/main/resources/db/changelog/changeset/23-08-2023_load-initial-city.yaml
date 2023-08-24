@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-initial-country-data
+      author: Edward Rogachkov
+      changes:
+        - loadData:
+            file: "cities-with-country-code.csv"
+            separator: ','
+            tableName: city
+
