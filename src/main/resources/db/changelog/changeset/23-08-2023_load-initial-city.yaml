@@ -4,7 +4,7 @@ databaseChangeLog:
       author: Edward Rogachkov
       changes:
         - loadData:
-            file: "city.csv"
+            file: "cities-with-country-code.csv"
             separator: ','
             tableName: city
 
