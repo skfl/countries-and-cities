@@ -1,6 +1,7 @@
 package com.skfl.city.mapper;
 
 import com.skfl.city.dto.CityDto;
+import com.skfl.city.dto.CountryCityDto;
 import com.skfl.city.dto.CountryDto;
 import com.skfl.city.entity.City;
 import com.skfl.city.entity.Country;
@@ -14,7 +15,7 @@ public interface CountryMapper {
 
     CountryDto toDto(Country country);
 
-    default CityDto cityToCityDto(City city){
-        return Mappers.getMapper(CityMapper.class).toDto(city);
+    default CountryCityDto cityToCountryCityDto(City city){
+        return Mappers.getMapper(CountryCityMapper.class).cityToCountryCity(city);
     }
 }

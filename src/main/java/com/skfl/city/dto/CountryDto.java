@@ -11,5 +11,5 @@ public class CountryDto {
 
     private String name;
 
-    private List<CityDto> cities;
+    private List<CountryCityDto> cities;
 }
